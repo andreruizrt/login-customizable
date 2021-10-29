@@ -1,0 +1,11 @@
+{
+	"title": "userConfiguration",
+	"Variables": 
+	{
+		"bg_color": "#fffff",
+		"button_text_color": "#fffff",
+		"button_bg_color": "#111111",
+		"label_heading_color": "#fffff",
+		"label_content_color": "#fffff"
+	}
+}
