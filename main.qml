@@ -13,7 +13,7 @@ ApplicationWindow {
     height: 380
     title: qsTr("Login")
 
-    Page1 {
+    LoginPage {
         id: page1
         anchors.fill: parent
     }
