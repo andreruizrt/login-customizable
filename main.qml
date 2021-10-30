@@ -11,14 +11,48 @@ ApplicationWindow {
     height: 380
     title: qsTr("Login")
 
+    property alias loginPage: loginPage
+    property alias settingsPage: settingsPage
+    property alias settingsButton: settingsButton
     property string backgroundColor: Material.background
     property string primaryColor: Material.primary
     property string secondaryColor: Material.BlueGrey
     property string buttonColor: Material.Teal
 
+    Button {
+        id: settingsButton
+        width: 100
+        height: 40
+        text: qsTr("Configuração")
+        visible: true
+        onClicked: {
+            visible = false
+            settingsPage.visible = true
+            voltarButton.visible = true
+            loginPage.visible = false
+        }
+    }
+
+    Button {
+        id: voltarButton
+        width: 60
+        text: qsTr("Voltar")
+        anchors.left: parent.left
+        anchors.leftMargin: 0
+        anchors.top: parent.top
+        anchors.topMargin: 0
+        visible: false
+        onClicked: {
+            voltarButton.visible = false
+            settingsPage.visible = false
+            settingsButton.visible = true
+            loginPage.visible = true
+        }
+    }
+
+
     Settings {
         id: colorSettings
-        category: "Color"
         property alias x: window.x
         property alias y: window.y
         property alias width: window.width
@@ -27,41 +61,34 @@ ApplicationWindow {
         property alias primaryColor: window.primaryColor
         property alias secondaryColor: window.secondaryColor
         property alias buttonColor: window.buttonColor
-
-       }
-
-    Component.onDestruction: {
-        colorSettings.bgColor = "#A2F039"
-        colorSettings.primaryColor = "#319A4F"
-        colorSettings.secondaryColor = "#62F4DC"
-        colorSettings.buttonColor = "#8A1BB2"
     }
 
-    Menu {
-        Menu {
-            title: qsTr("&File")
-            Action { text: qsTr("&New...") }
-            Action { text: qsTr("&Open...") }
-            Action { text: qsTr("&Save") }
-            Action { text: qsTr("Save &As...") }
-            MenuSeparator { }
-            Action { text: qsTr("&Quit") }
-        }
-        Menu {
-            title: qsTr("&Edit")
-            Action { text: qsTr("Cu&t") }
-            Action { text: qsTr("&Copy") }
-            Action { text: qsTr("&Paste") }
-        }
-        Menu {
-            title: qsTr("&Help")
-            Action { text: qsTr("&About") }
-        }
+    Component.onDestruction: {
+        colorSettings.bgColor = window.backgroundColor
+        colorSettings.primaryColor = window.primaryColor
+        colorSettings.secondaryColor = window.secondaryColor
+        colorSettings.buttonColor = window.buttonColor
+    }
+
+    Component.onCompleted:  {
+        window.backgroundColor = colorSettings.bgColor
+        window.primaryColor = colorSettings.primaryColor
+        window.secondaryColor = colorSettings.secondaryColor
+        window.buttonColor = colorSettings.buttonColor
     }
 
     LoginPage {
-        id: login
+        id: loginPage
         anchors.fill: parent
     }
-}
 
+    SettingsPage {
+        id: settingsPage
+        anchors.left: parent.left
+        anchors.leftMargin: 5
+        anchors.top: parent.top
+        anchors.topMargin: 5
+        visible: false
+
+    }
+}
