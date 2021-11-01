@@ -51,13 +51,13 @@ Item {
 
     GroupBox {
         id: groupBox
-        x: 12
-        y: 8
         width: 400
         height: 284
+        anchors.left: parent.left
+        anchors.leftMargin: 10
+        anchors.top: parent.top
+        anchors.topMargin: 20
         title: "Configuration"
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 5
 
         Label {
             id: label
@@ -72,12 +72,14 @@ Item {
 
         Button {
             id: backgroundColorButton
-            anchors.top: parent.top
-            anchors.topMargin: 10
             anchors.right: parent.right
-            anchors.rightMargin: 224
-            anchors.left: label.right
-            anchors.leftMargin: 50
+            anchors.rightMargin: 6
+            anchors.bottom: primaryColorButton.top
+            anchors.bottomMargin: 34
+            anchors.top: parent.top
+            anchors.topMargin: 7
+            anchors.left: parent.left
+            anchors.leftMargin: 139
             background: Rectangle {
                 color: backgroundColor
                 border.color: "black"
@@ -96,11 +98,15 @@ Item {
 
         Button {
             id: primaryColorButton
-            x: 69
-            y: 71
-            width: 50
-            anchors.left: label1.right
-            anchors.leftMargin: 31
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 138
+            anchors.right: parent.right
+            anchors.rightMargin: 6
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.topMargin: 71
+
+            anchors.leftMargin: 139
             background: Rectangle {
                 color: primaryColor
                 border.color: "black"
@@ -119,10 +125,12 @@ Item {
 
         Button {
             id: secondaryColorButton
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 74
             anchors.left: parent.left
-            anchors.leftMargin: 103
-            anchors.right: label2.right
-            anchors.rightMargin: -114
+            anchors.leftMargin: 145
+            anchors.right: parent.right
+            anchors.rightMargin: 6
             anchors.top: parent.top
             anchors.topMargin: 136
             background: Rectangle {
@@ -144,11 +152,13 @@ Item {
         Button {
             id: buttonColorButton
             anchors.left: parent.left
-            anchors.leftMargin: 102
+            anchors.leftMargin: 139
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 9
             anchors.top: parent.top
             anchors.topMargin: 201
-            anchors.right: label3.right
-            anchors.rightMargin: -109
+            anchors.right: parent.right
+            anchors.rightMargin: 6
             background: Rectangle {
                 color: buttonColor
                 border.color: "black"

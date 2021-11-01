@@ -17,26 +17,27 @@ Item {
             x: 220
             y: 131
             width: 200
-            height: 200
+            height: 228
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
+
+            Label {
+                id: loginLabel
+                text: qsTr("Login")
+                color: primaryColor
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                verticalAlignment: Text.AlignTop
+                horizontalAlignment: Text.AlignLeft
+                font.weight: Font.ExtraLight
+                font.capitalization: Font.Capitalize
+                font.pointSize: 30
+            }
 
             ColumnLayout {
                 id: usuarioColumnLayout
                 width: 100
                 height: 100
-
-                Label {
-                    id: loginLabel
-                    text: "login"
-                    color: primaryColor
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                    verticalAlignment: Text.AlignTop
-                    horizontalAlignment: Text.AlignLeft
-                    font.weight: Font.ExtraLight
-                    font.capitalization: Font.Capitalize
-                    font.pointSize: 30
-                }
+                Layout.fillWidth: true
 
                 Label {
                     id: usuarioLabel
@@ -46,6 +47,7 @@ Item {
 
                 TextField {
                     id: usuarioTextField
+                    Layout.fillWidth: true
                     placeholderText: qsTr("Usuário ou email")
                 }
             }
@@ -54,6 +56,8 @@ Item {
                 id: senhaColumnLayout
                 width: 100
                 height: 100
+                Layout.fillWidth: true
+                Layout.fillHeight: false
 
                 Label {
                     id: usuarioLabel1
@@ -63,20 +67,21 @@ Item {
 
                 TextField {
                     id: senhaTextField
-                    placeholderText: qsTr("Senha")
+                    Layout.fillWidth: true
                     echoMode: TextInput.Password
+                    placeholderText: qsTr("Senha")
                 }
             }
 
             Button {
                 id: entrarButton
                 width: 200
-                height: 40
+                height: 50
                 text: qsTr("Entrar")
+                Layout.fillHeight: true
                 background: Rectangle {
                     color: buttonColor
                 }
-
                 Layout.fillWidth: true
             }
         }

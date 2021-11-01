@@ -7,5 +7,6 @@
         <file>SettingsPageForm.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>images/settings.png</file>
+        <file>images/settingsButton.svg</file>
     </qresource>
 </RCC>
